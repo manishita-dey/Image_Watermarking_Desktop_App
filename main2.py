@@ -12,8 +12,6 @@ def openfilename():
     filename = filedialog.askopenfilename(title='Open')
     return filename
 
-# def selectlogoimg():
-#     filename = filedialog.askopenfilename(title= 'Open')
 
 
 def select_image():
@@ -58,7 +56,6 @@ def text_watermark():
     textwidth, textheight = draw.textsize(text, font)
     width, height = image.size
     x = width / 2 - textwidth / 2
-    # y = height - textheight - 300
     y = height/2- textheight +50
 
     # Applying text on image via draw object
@@ -67,7 +64,6 @@ def text_watermark():
     # Combining Original image with text and Saving the new image
     watermarked = Image.alpha_composite(image,txt)
     saved_file_extension = filedialog.asksaveasfilename(title= 'Save As', defaultextension = '.png', initialfile = watermarked)
-    # watermarked.save(r'C:\Users\MANISHITA DEY\Desktop\spiderman.png')
     watermarked.save(saved_file_extension)
 
     #     adding a message dialog box for letting user know that file was saved
@@ -92,7 +88,7 @@ def logo_watermark():
 
     global logo_img_var
     logo_img_var = transparent
-    # transparent.save(r'C:\Users\MANISHITA DEY\Desktop\spiderman.png')
+
 
 
 def save_logo_img():
@@ -112,7 +108,6 @@ logo_img_var = None
 
 window = tkinter.Tk()
 window.title("Image Watermarking Desktop App")
-# window.minsize(width=1000, height=500)
 window.config(padx=50, pady=50)
 # Allow Window to be resizable
 window.resizable(width = True, height = True)
@@ -120,8 +115,6 @@ window.resizable(width = True, height = True)
 # Button(To select image to be processed)
 button = tkinter.Button(text="Select Image", command=select_image)
 button.grid(row = 0, column = 1)
-
-# image_var = select_image()
 
 
 # Entry for watermark text
@@ -135,10 +128,6 @@ input_text.grid(row = 2, column = 0)
 button_text = tkinter.Button(text='Apply text watermark', command = text_watermark)
 button_text.grid(row = 3, column = 0 )
 
-
-# #Button(To select logo image)
-# button_logo_img = tkinter.Button(text= 'Select logo image', command = selectlogoimg)
-# button_logo_img.grid(row = 2, column =2)
 
 #Button(To apply logo watermark)
 button_logo = tkinter.Button(text = 'Apply logo Watermark', command = logo_watermark)
